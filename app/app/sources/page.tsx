@@ -1,18 +1,22 @@
-export default function RoutePage() {
+import { sampleSources } from '../../../lib/product';
+
+export default function SourcesPage() {
   return (
     <main className="shell">
       <section className="frame hero">
-        <p className="eyebrow">Route</p>
-        <h1>Page scaffold</h1>
-        <p className="lead">This route exists so the repo is structurally complete and ready for a real backend implementation.</p>
-        <div className="row">
-          <a className="button" href="/app">Back to dashboard</a>
-          <a className="ghost" href="/">Open landing page</a>
-        </div>
+        <p className="eyebrow">Sources</p>
+        <h1>Paste a source and start a pack.</h1>
+        <p className="lead">Each source can become a thread, a newsletter, and a LinkedIn post without rewriting from scratch.</p>
       </section>
-      <section className="card">
-        <p className="kicker">Implementation note</p>
-        <p className="muted">Replace this scaffold with route-specific behavior, forms, or detail views as the product is implemented.</p>
+
+      <section className="grid cols-2">
+        {sampleSources.map((source) => (
+          <article key={source.id} className="card">
+            <p className="kicker">{source.type}</p>
+            <h2>{source.title}</h2>
+            <p className="muted">{source.topic} · {source.length}</p>
+          </article>
+        ))}
       </section>
     </main>
   );
