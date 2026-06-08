@@ -1,4 +1,5 @@
 import { buildHistorySnapshot, sampleExports, sampleProjects } from '../../lib/product';
+import { withBasePath } from "@/lib/site-path";
 
 const history = buildHistorySnapshot(sampleExports, sampleProjects);
 
@@ -10,8 +11,8 @@ export default function DashboardPage() {
         <h1>Turn one source into a complete content pack.</h1>
         <p className="lead">Work from source to publishable assets without leaving the workflow behind.</p>
         <div className="row">
-          <a className="button" href="/app/sources">Add source</a>
-          <a className="ghost" href="/app/exports">View exports</a>
+          <a className="button" href={withBasePath('/app/sources')}>Add source</a>
+          <a className="ghost" href={withBasePath('/app/exports')}>View exports</a>
         </div>
       </section>
 

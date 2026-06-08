@@ -1,4 +1,5 @@
 import { BUYER, LAUNCH, PROMISE, V2, WEDGE, buildContentPack, buildHistorySnapshot, buildVoiceProfile, sampleExports, sampleProjects, sampleSources, sampleVoices } from '../lib/product';
+import { withBasePath } from "@/lib/site-path";
 
 const pack = buildContentPack(sampleSources[0], sampleVoices[0]);
 const voice = buildVoiceProfile(sampleVoices[0]);
@@ -12,8 +13,8 @@ export default function HomePage() {
         <h1>{PROMISE}</h1>
         <p className="lead">{WEDGE} Built for {BUYER} who want one source turned into a clean multi-channel pack fast.</p>
         <div className="row">
-          <a className="button" href="/app">Open dashboard</a>
-          <a className="ghost" href="/app/projects">Preview project pack</a>
+          <a className="button" href={withBasePath('/app')}>Open dashboard</a>
+          <a className="ghost" href={withBasePath('/app/projects')}>Preview project pack</a>
         </div>
       </section>
 
